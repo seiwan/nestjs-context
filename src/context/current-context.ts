@@ -6,6 +6,8 @@ import { Context } from './context';
 export class CurrentContext {
   constructor(private readonly contexts: ContextContainer) {}
   private call(name, ...args) {
+    console.log('args : ', JSON.stringify(args));
+    // console.log('currentContext : ', this.contexts.current());
     return this.contexts.current()[name](...args);
   }
   get(...args: Parameters<Context['get']>) {
